@@ -53,23 +53,39 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 430982070088446193, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.16
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 430982070088446193, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 0.16
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004941218198312184, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: _checkLayer.m_Bits
+      value: 1089
       objectReference: {fileID: 0}
     - target: {fileID: 1343021790739515553, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 7ceb1eb1162abff4f89bbb9bcaa641a6, type: 3}
+    - target: {fileID: 1343021790739515553, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3816774468819563947, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Name
       value: Red
       objectReference: {fileID: 0}
     - target: {fileID: 3816774468819563947, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4483032365943005281, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4942742783253854713, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7864060215478884979, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_NotificationBehavior
@@ -254,6 +270,18 @@ PrefabInstance:
     - target: {fileID: 7864060215478884979, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_ActionEvents.Array.data[3].m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495543644107047579, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.94117653
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495543644107047579, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.76470596
+      objectReference: {fileID: 0}
+    - target: {fileID: 8495543644107047579, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_Color.r
+      value: 0.3529412
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
