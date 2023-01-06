@@ -44,7 +44,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -118,8 +118,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 723c7897083de08479839a983c7f73c4
-      internalID: -722740661
+      spriteID: 52e90a607817dc44d8a27516e80e8f81
+      internalID: 2113275593
       vertices: []
       indices: 
       edges: []
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 189dabd3d55ef334f87228deccd83063
-      internalID: 2079174751
+      spriteID: 4bb19e9b58e182a4b8c8bd0679b116e4
+      internalID: -1321289607
       vertices: []
       indices: 
       edges: []
@@ -160,8 +160,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9c124810a32707949baa7a66cfa2fa27
-      internalID: 167276750
+      spriteID: 585f4348b34dbf448820bca6cd8a012d
+      internalID: 55860910
       vertices: []
       indices: 
       edges: []
@@ -181,8 +181,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73caffbb9dc91824ebf20f386db7bcb2
-      internalID: 711911186
+      spriteID: 80716f819bbee1a428c164db9508955a
+      internalID: 427520714
       vertices: []
       indices: 
       edges: []
@@ -191,8 +191,8 @@ TextureImporter:
       name: purple tile palette-Sheet_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 64
+        y: 48
         width: 16
         height: 16
       alignment: 0
@@ -202,8 +202,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a13f57e91ab8c5945aafa99b2e5a4683
-      internalID: 648723240
+      spriteID: e4b923da1cdc95e44a94ec743a8f0394
+      internalID: -1909493760
       vertices: []
       indices: 
       edges: []
@@ -212,7 +212,7 @@ TextureImporter:
       name: purple tile palette-Sheet_5
       rect:
         serializedVersion: 2
-        x: 16
+        x: 0
         y: 32
         width: 16
         height: 16
@@ -223,8 +223,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1a4e5b3dc4bb914ab310d321a8824a5
-      internalID: -391892400
+      spriteID: c7e6dd22f18f24e48989457ec3e9ab23
+      internalID: -394452769
       vertices: []
       indices: 
       edges: []
@@ -233,7 +233,7 @@ TextureImporter:
       name: purple tile palette-Sheet_6
       rect:
         serializedVersion: 2
-        x: 32
+        x: 16
         y: 32
         width: 16
         height: 16
@@ -244,8 +244,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6f9839196dbd56438284db3d34a71b9
-      internalID: -1064022771
+      spriteID: 194498b7befa13342be45d2c4f6946ca
+      internalID: -1775261592
       vertices: []
       indices: 
       edges: []
@@ -254,6 +254,27 @@ TextureImporter:
       name: purple tile palette-Sheet_7
       rect:
         serializedVersion: 2
+        x: 32
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 888a20c6dcdecd343949d0f1497046a3
+      internalID: 1752350942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple tile palette-Sheet_8
+      rect:
+        serializedVersion: 2
         x: 48
         y: 32
         width: 16
@@ -265,29 +286,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aaae1b0222fd00943b373d56d2acbafd
-      internalID: -366374854
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: purple tile palette-Sheet_8
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e037db933c48a8241a840393b489cef5
-      internalID: -1929843749
+      spriteID: 147fbead4e046b6448c381b1bbdb6388
+      internalID: 1183129062
       vertices: []
       indices: 
       edges: []
@@ -296,6 +296,48 @@ TextureImporter:
       name: purple tile palette-Sheet_9
       rect:
         serializedVersion: 2
+        x: 64
+        y: 32
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f3dd56f79053f649b2f4d52177c343d
+      internalID: -1292561689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple tile palette-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff43e026dbe9df40b8e5ce5fa03903b
+      internalID: -887371780
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple tile palette-Sheet_11
+      rect:
+        serializedVersion: 2
         x: 16
         y: 16
         width: 16
@@ -307,14 +349,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4de3ba93a3fd46b4887620aefdf9d40f
-      internalID: -1954248631
+      spriteID: a7767aa5ab0cd0648be8523a02449f72
+      internalID: 851088432
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: purple tile palette-Sheet_10
+      name: purple tile palette-Sheet_12
       rect:
         serializedVersion: 2
         x: 32
@@ -328,14 +370,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 323475c54a8922e47a045111464fc7f7
-      internalID: -1621225148
+      spriteID: 29b1cd6bc7ed32b499da155a16b62599
+      internalID: 1146020410
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: purple tile palette-Sheet_11
+      name: purple tile palette-Sheet_13
       rect:
         serializedVersion: 2
         x: 48
@@ -349,14 +391,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11eac41042287744281e92c796f0be3f
-      internalID: -2109055214
+      spriteID: a1e1cb65b72617a4e914f7f6e9fa4599
+      internalID: 1348635793
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: purple tile palette-Sheet_12
+      name: purple tile palette-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 16
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00e595aa8aae8eb419b3101c6ee05109
+      internalID: -1418335453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple tile palette-Sheet_15
       rect:
         serializedVersion: 2
         x: 0
@@ -370,14 +433,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c86fc21c7f61ef74fb309c1e8618dc1d
-      internalID: -316688904
+      spriteID: 40f28db28ca15654cb032284864ea465
+      internalID: -377204008
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: purple tile palette-Sheet_13
+      name: purple tile palette-Sheet_16
       rect:
         serializedVersion: 2
         x: 16
@@ -391,14 +454,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 320a9f87376dc7041910963abc359ff6
-      internalID: -231785222
+      spriteID: 58669f0bfdc590e44851f984f10a8a48
+      internalID: 821848453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: purple tile palette-Sheet_14
+      name: purple tile palette-Sheet_17
       rect:
         serializedVersion: 2
         x: 32
@@ -412,14 +475,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5c7dea7cb16c32943af8361fe3814f20
-      internalID: 264235523
+      spriteID: 25412b6ce8bca664f8658e2d0ee3a850
+      internalID: -98386561
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: purple tile palette-Sheet_15
+      name: purple tile palette-Sheet_18
       rect:
         serializedVersion: 2
         x: 48
@@ -433,8 +496,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9a8111c8e275e7b47b61df059c9178b4
-      internalID: -1253163551
+      spriteID: d94cfa5423306b74c85ae780151176a8
+      internalID: -62822858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: purple tile palette-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 854d605abfa801a40bb045a95cc24227
+      internalID: 108837102
       vertices: []
       indices: 
       edges: []
@@ -450,22 +534,26 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      purple tile palette-Sheet_15: -1253163551
-      purple tile palette-Sheet_6: -1064022771
-      purple tile palette-Sheet_13: -231785222
-      purple tile palette-Sheet_8: -1929843749
-      purple tile palette-Sheet_5: -391892400
-      purple tile palette-Sheet_0: -722740661
-      purple tile palette-Sheet_4: 648723240
-      purple tile palette-Sheet_10: -1621225148
-      purple tile palette-Sheet_9: -1954248631
-      purple tile palette-Sheet_2: 167276750
-      purple tile palette-Sheet_11: -2109055214
-      purple tile palette-Sheet_14: 264235523
-      purple tile palette-Sheet_7: -366374854
-      purple tile palette-Sheet_12: -316688904
-      purple tile palette-Sheet_1: 2079174751
-      purple tile palette-Sheet_3: 711911186
+      purple tile palette-Sheet_15: -377204008
+      purple tile palette-Sheet_6: -1775261592
+      purple tile palette-Sheet_13: 1348635793
+      purple tile palette-Sheet_8: 1183129062
+      purple tile palette-Sheet_5: -394452769
+      purple tile palette-Sheet_0: 2113275593
+      purple tile palette-Sheet_4: -1909493760
+      purple tile palette-Sheet_19: 108837102
+      purple tile palette-Sheet_10: -887371780
+      purple tile palette-Sheet_9: -1292561689
+      purple tile palette-Sheet_2: 55860910
+      purple tile palette-Sheet_11: 851088432
+      purple tile palette-Sheet_14: -1418335453
+      purple tile palette-Sheet_7: 1752350942
+      purple tile palette-Sheet_16: 821848453
+      purple tile palette-Sheet_17: -98386561
+      purple tile palette-Sheet_18: -62822858
+      purple tile palette-Sheet_12: 1146020410
+      purple tile palette-Sheet_1: -1321289607
+      purple tile palette-Sheet_3: 427520714
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
