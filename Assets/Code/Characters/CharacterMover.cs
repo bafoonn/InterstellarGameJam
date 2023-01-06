@@ -175,7 +175,6 @@ namespace Jam
                 float jumpVelocity = Mathf.Sqrt(_jumpHeight * -2f * Physics2D.gravity.y);
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpVelocity);
                 _currentJumpMultiplier = 1 + _jumpSpeedMultiplier * (_currentSpeed / _speed);
-                Debug.Log(_currentJumpMultiplier);
             }
         }
 
