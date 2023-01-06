@@ -36,7 +36,7 @@ namespace Jam
             if (_sensor.Umbrella)
             {
                 //xVelocity = _moveInput + _sensor.Umbrella.Velocity;
-                _mover.MoveOnTop(MoveInput, _sensor.Umbrella);
+                _mover.MoveOnTop(MoveInput, _sensor.Umbrella.Rigidbody);
             }  
             else
             {
