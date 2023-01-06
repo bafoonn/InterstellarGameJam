@@ -36,24 +36,66 @@ namespace Jam
             _isGrounded = Physics2D.OverlapCircle(checkPos, _checkRadius, _checkLayer);
         }
 
-        public void Move(Vector2 moveInput)
+        /// <summary>
+        /// Returns the current speed based on movement input.<br></br>
+        /// Changes private vector field to enable acceleration/deceleration.
+        /// </summary>
+        /// <param name="moveInput">Input which determines if the speed is accelerating or decelerating.</param>
+        /// <returns></returns>
+        private float GetSpeed(Vector2 moveInput)
         {
-            
-            if(moveInput.Equals(Vector2.zero))
+            if (moveInput.Equals(Vector2.zero))
             {
-                _currentSpeed = Mathf.MoveTowards(_currentSpeed, 0, _deceleration * Time.deltaTime);
+                return Mathf.MoveTowards(_currentSpeed, 0, _deceleration * Time.deltaTime);
             }
             else
             {
-                _currentSpeed = Mathf.MoveTowards(_currentSpeed, _speed, _acceleration * Time.deltaTime);
                 _movement = transform.right * moveInput.x;
+                return Mathf.MoveTowards(_currentSpeed, _speed, _acceleration * Time.deltaTime);
             }
+        }
 
+        /// <summary>
+        /// Flips the sprite on the x-axis based on velocity;
+        /// </summary>
+        /// <param name="xVelocity">Determines if the sprite is flipped. Positive = flipped</param>
+        private void FlipSprite(float xVelocity)
+        {
+            _renderer.flipX = xVelocity > 0;    
+        }
 
-            //_rigidbody.MovePosition(_rigidbody.position + movement * _currentSpeed * Time.deltaTime);
+        /// <summary>
+        /// Moves the character on the x-axis.
+        /// </summary>
+        /// <param name="moveInput">Determines the movement direction.</param>
+        public void Move(Vector2 moveInput)
+        {
+            _currentSpeed = GetSpeed(moveInput);
+
+            FlipSprite(_movement.x);
+            
             _rigidbody.velocity = new Vector2(_movement.x * _currentSpeed, _rigidbody.velocity.y);
         }
 
+        /// <summary>
+        /// Moves the character based on the umbrellas movement and movement input.
+        /// </summary>
+        /// <param name="moveInput">Determines the movement direction.<br>Is added to umbrellas velocity.</br></param>
+        /// <param name="umbrella">Umbrellas velocity is added to CharacterMovers velocity.</param>
+        public void MoveOnTop(Vector2 moveInput, Umbrella umbrella)
+        {
+            _currentSpeed = GetSpeed(moveInput);
+
+            float xVelocity = umbrella.Velocity.x + _movement.x * _currentSpeed;
+
+            FlipSprite(_movement.x);
+
+            _rigidbody.velocity = new Vector2(xVelocity, _rigidbody.velocity.y);
+        }
+
+        /// <summary>
+        /// Makes the character jump a certain height.
+        /// </summary>
         public void Jump()
         {
             if(_isGrounded)
