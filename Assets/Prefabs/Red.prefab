@@ -63,6 +63,14 @@ PrefabInstance:
       propertyPath: _checkLayer.m_Bits
       value: 1089
       objectReference: {fileID: 0}
+    - target: {fileID: 1004941218198312184, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: _wallCheckLayer.m_Bits
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 1004941218198312184, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: _groundCheckLayer.m_Bits
+      value: 1089
+      objectReference: {fileID: 0}
     - target: {fileID: 1343021790739515553, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -70,6 +78,10 @@ PrefabInstance:
     - target: {fileID: 1343021790739515553, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_WasSpriteAssigned
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636478323766968614, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: _stopLayers.m_Bits
+      value: 129
       objectReference: {fileID: 0}
     - target: {fileID: 3816774468819563947, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Name

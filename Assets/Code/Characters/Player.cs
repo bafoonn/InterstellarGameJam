@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,9 +15,8 @@ namespace Jam
         private Umbrella _umbrella;
         private UmbrellaSensor _sensor;
 
-        private Vector2 _moveInput;
-        private bool _holdUpInput;
-        private bool _throwInput;
+        public Vector2 MoveInput { get; private set; }
+        public bool HoldUpInput { get; private set; }
 
         private void Awake()
         {
@@ -27,7 +27,7 @@ namespace Jam
             Debug.Assert(_sensor != null, $"{name} cannot find MovementSensor component in children.");
             Debug.Assert(_umbrella != null, $"{name} cannot find Umbrella component in children.");
 
-            _umbrella.Setup(GetComponent<Rigidbody2D>());
+            _umbrella.Setup(this, GetComponent<Rigidbody2D>());
         }
 
         private void Update()
@@ -36,23 +36,23 @@ namespace Jam
             if (_sensor.Umbrella)
             {
                 //xVelocity = _moveInput + _sensor.Umbrella.Velocity;
-                _mover.MoveOnTop(_moveInput, _sensor.Umbrella);
+                _mover.MoveOnTop(MoveInput, _sensor.Umbrella);
             }  
             else
             {
-                _mover.Move(_moveInput);
+                _mover.Move(MoveInput);
 
             }
         }
 
         public void OnMove(InputAction.CallbackContext callback)
         {
-            _moveInput = callback.ReadValue<Vector2>();
+            MoveInput = callback.ReadValue<Vector2>();
         }
 
         public void OnHoldUp(InputAction.CallbackContext callback)
         {
-            _holdUpInput = callback.performed;
+            HoldUpInput = callback.performed;
         }
 
         public void OnJump(InputAction.CallbackContext callback)
@@ -65,7 +65,13 @@ namespace Jam
 
         public void OnThrow(InputAction.CallbackContext callback)
         {
-            _throwInput = callback.started;
+            if (callback.started)
+            {
+                //Throw?.Invoke();
+                _umbrella.Throw();
+                callback.action.WasPerformedThisFrame();
+            }
+
         }
     }
 }

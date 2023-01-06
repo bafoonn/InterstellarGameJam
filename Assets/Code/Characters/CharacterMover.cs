@@ -4,7 +4,8 @@ using UnityEngine;
 
 namespace Jam
 {
-    [RequireComponent(typeof(Rigidbody2D)), RequireComponent(typeof(SpriteRenderer))]
+    [RequireComponent(typeof(Rigidbody2D))] 
+    [RequireComponent(typeof(SpriteRenderer))]
     public class CharacterMover : MonoBehaviour
     {
         private Rigidbody2D _rigidbody;
@@ -16,13 +17,28 @@ namespace Jam
         [SerializeField] private float _acceleration = 10f;
         [SerializeField] private float _deceleration = 10f;
         [SerializeField] private float _jumpHeight = 4;
-        private Vector2 _movement = Vector2.zero;
+        private Vector2 _movement;
+        private Vector2 _velocity
+        {
+            get => _movement;
+            set
+            {
+                _movement = new Vector2(Mathf.Clamp(value.x, _leftWallDistance, _rightWallDistance), value.y);
+            }
+        }
+
+        [Header("WallCheck")]
+        [SerializeField] private float _checkRange = 1f;
+        [SerializeField] private Vector2 _checkOffset; 
+        private float _leftWallDistance;
+        private float _rightWallDistance;
+        [SerializeField] private LayerMask _wallCheckLayer;
 
         private bool _isGrounded;
         [Header("GroundCheck")]
         [SerializeField] private Vector2 _groundCheck = new Vector2(0, -0.5f);
         [SerializeField] private float _checkRadius = 0.5f;
-        [SerializeField] private LayerMask _checkLayer;
+        [SerializeField] private LayerMask _groundCheckLayer;
 
         private void Awake()
         {
@@ -33,8 +49,50 @@ namespace Jam
         private void Update()
         {
             Vector2 checkPos = _rigidbody.position + _groundCheck;
-            _isGrounded = Physics2D.OverlapCircle(checkPos, _checkRadius, _checkLayer);
+            _isGrounded = Physics2D.OverlapCircle(checkPos, _checkRadius, _groundCheckLayer);
+
+            CheckWalls();
         }
+
+        private void CheckWalls()
+        {
+            bool isLeftWall = CheckDirection(Vector2.left);
+            bool isRightWall = CheckDirection(Vector2.right);
+
+            _leftWallDistance = isLeftWall ? 0 : -1;
+            _rightWallDistance = isRightWall ? 0 : 1;
+        }
+
+        private bool CheckDirection(Vector2 direction)
+        {
+            if(direction.x > 0)
+            {
+                Vector2 min = _rigidbody.position + _checkOffset;
+                Vector2 max = _rigidbody.position + new Vector2(_checkOffset.x, -_checkOffset.y);
+                return CheckRays(min, max, direction);
+            }
+            else
+            {
+                Vector2 min = _rigidbody.position + new Vector2(-_checkOffset.x, _checkOffset.y);
+                Vector2 max = _rigidbody.position + new Vector2(-_checkOffset.x, -_checkOffset.y);
+                return CheckRays(min, max, direction);
+            }
+        }
+
+        private bool CheckRays(Vector2 min, Vector2 max, Vector2 direction)
+        {
+            float t = 0;
+            int rayCount = 3;
+            for (int i = 0; i < rayCount; i++)
+            {
+                t = (float)i / (rayCount - 1);
+                Vector2 pos = Vector2.Lerp(min, max, t);
+                Debug.DrawRay(pos, direction * _checkRange);
+                if (Physics2D.Raycast(pos, direction, _checkRange, _wallCheckLayer)) return true;
+            }
+            return false;
+        }
+
 
         /// <summary>
         /// Returns the current speed based on movement input.<br></br>
@@ -50,7 +108,7 @@ namespace Jam
             }
             else
             {
-                _movement = transform.right * moveInput.x;
+                _velocity = transform.right * moveInput.x;
                 return Mathf.MoveTowards(_currentSpeed, _speed, _acceleration * Time.deltaTime);
             }
         }
@@ -61,7 +119,14 @@ namespace Jam
         /// <param name="xVelocity">Determines if the sprite is flipped. Positive = flipped</param>
         private void FlipSprite(float xVelocity)
         {
-            _renderer.flipX = xVelocity > 0;    
+            if(xVelocity > 0)
+            {
+                _renderer.flipX = true;
+            }
+            else if(xVelocity < 0)
+            {
+                _renderer.flipX = false;
+            }
         }
 
         /// <summary>
@@ -72,9 +137,9 @@ namespace Jam
         {
             _currentSpeed = GetSpeed(moveInput);
 
-            FlipSprite(_movement.x);
+            FlipSprite(_velocity.x);
             
-            _rigidbody.velocity = new Vector2(_movement.x * _currentSpeed, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_velocity.x * _currentSpeed, _rigidbody.velocity.y);
         }
 
         /// <summary>
@@ -86,9 +151,9 @@ namespace Jam
         {
             _currentSpeed = GetSpeed(moveInput);
 
-            float xVelocity = umbrella.Velocity.x + _movement.x * _currentSpeed;
+            float xVelocity = umbrella.Velocity.x + _velocity.x * _currentSpeed;
 
-            FlipSprite(_movement.x);
+            FlipSprite(_velocity.x);
 
             _rigidbody.velocity = new Vector2(xVelocity, _rigidbody.velocity.y);
         }
@@ -110,6 +175,12 @@ namespace Jam
             Gizmos.color = Color.yellow;
             Vector2 pos = (Vector2)transform.position + _groundCheck;
             Gizmos.DrawWireSphere(pos, _checkRadius);
+
+            //pos = (Vector2)transform.position + new Vector2(-_checkOffset.x, _checkOffset.y);
+            //Gizmos.DrawLine(pos, pos - new Vector2(_checkRange, 0));
+
+            //pos = (Vector2)transform.position + _checkOffset;
+            //Gizmos.DrawLine(pos, pos + new Vector2(_checkRange, 0));
         }
     }
 }
