@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Jam
 {
-    [RequireComponent(typeof(Rigidbody2D))] 
+    [RequireComponent(typeof(Rigidbody2D))]
     [RequireComponent(typeof(SpriteRenderer))]
     public class CharacterMover : MonoBehaviour
     {
@@ -17,6 +17,10 @@ namespace Jam
         [SerializeField] private float _acceleration = 10f;
         [SerializeField] private float _deceleration = 10f;
         [SerializeField] private float _jumpHeight = 4;
+        [SerializeField] private float _jumpSpeedMultiplier = 0.5f;
+        private float _currentJumpMultiplier;
+        
+        [SerializeField]
         private Vector2 _movement;
         private Vector2 _velocity
         {
@@ -48,10 +52,14 @@ namespace Jam
 
         private void Update()
         {
-            Vector2 checkPos = _rigidbody.position + _groundCheck;
-            _isGrounded = Physics2D.OverlapCircle(checkPos, _checkRadius, _groundCheckLayer);
-
+            if (CheckIfGrounded() && _rigidbody.velocity.y < 0) _currentJumpMultiplier = 1;
             CheckWalls();
+        }
+
+        private bool CheckIfGrounded()
+        {
+            Vector2 checkPos = _rigidbody.position + _groundCheck;
+            return _isGrounded = Physics2D.OverlapCircle(checkPos, _checkRadius, _groundCheckLayer);
         }
 
         private void CheckWalls()
@@ -108,7 +116,7 @@ namespace Jam
             }
             else
             {
-                _velocity = transform.right * moveInput.x;
+                _velocity = transform.right * moveInput.x * _currentSpeed;
                 return Mathf.MoveTowards(_currentSpeed, _speed, _acceleration * Time.deltaTime);
             }
         }
@@ -139,20 +147,19 @@ namespace Jam
 
             FlipSprite(_velocity.x);
             
-            _rigidbody.velocity = new Vector2(_velocity.x * _currentSpeed, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_velocity.x * _currentSpeed * _currentJumpMultiplier, _rigidbody.velocity.y);
         }
 
         /// <summary>
         /// Moves the character based on the umbrellas movement and movement input.
         /// </summary>
         /// <param name="moveInput">Determines the movement direction.<br>Is added to umbrellas velocity.</br></param>
-        /// <param name="umbrella">Umbrellas velocity is added to CharacterMovers velocity.</param>
-        public void MoveOnTop(Vector2 moveInput, Umbrella umbrella)
+        /// <param name="rigidbody">Rigidbodys velocity is added to CharacterMovers velocity.</param>
+        public void MoveOnTop(Vector2 moveInput, Rigidbody2D rigidbody)
         {
             _currentSpeed = GetSpeed(moveInput);
 
-            float xVelocity = umbrella.Velocity.x + _velocity.x * _currentSpeed;
-
+            float xVelocity = rigidbody.velocity.x + _velocity.x * _currentSpeed * _currentJumpMultiplier;
             FlipSprite(_velocity.x);
 
             _rigidbody.velocity = new Vector2(xVelocity, _rigidbody.velocity.y);
@@ -167,6 +174,8 @@ namespace Jam
             {
                 float jumpVelocity = Mathf.Sqrt(_jumpHeight * -2f * Physics2D.gravity.y);
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpVelocity);
+                _currentJumpMultiplier = 1 + _jumpSpeedMultiplier * (_currentSpeed / _speed);
+                Debug.Log(_currentJumpMultiplier);
             }
         }
 

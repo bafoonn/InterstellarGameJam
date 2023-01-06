@@ -228,6 +228,8 @@ MonoBehaviour:
   _acceleration: 30
   _deceleration: 30
   _jumpHeight: 3
+  _jumpSpeedMultiplier: 0.5
+  _movement: {x: 0, y: 0}
   _checkRange: 0.1
   _checkOffset: {x: 0.25, y: 0.45}
   _wallCheckLayer:
