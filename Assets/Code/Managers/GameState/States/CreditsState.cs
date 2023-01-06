@@ -8,11 +8,11 @@ namespace Jam
     {
         public override string SceneName => "Credits";
 
-        public override StateType Type => StateType.Credits;
+        public override GameStateType Type => GameStateType.Credits;
 
         public CreditsState() : base()
         {
-            AddTargetState(StateType.MainMenu);
+            AddTargetState(GameStateType.MainMenu);
         }
     }
 }

@@ -11,14 +11,14 @@ namespace Jam
     public abstract class GameStateBase
     {
         // List of legal target state types for this state
-        private List<StateType> _targetStates = new List<StateType>();
+        private List<GameStateType> _targetStates = new List<GameStateType>();
 
         protected int _stageIndex = 0;
 
         // An abstact property. The get accessor has to be implemented in a child class
         public abstract string SceneName { get; }
 
-        public abstract StateType Type { get; }
+        public abstract GameStateType Type { get; }
 
         public virtual bool IsAdditive { get { return false; } }
 
@@ -33,7 +33,7 @@ namespace Jam
         {
         }
 
-        protected void AddTargetState(StateType targetStateType)
+        protected void AddTargetState(GameStateType targetStateType)
         {
             if (!_targetStates.Contains(targetStateType))
             {
@@ -41,7 +41,7 @@ namespace Jam
             }
         }
 
-        protected void RemoveTargetState(StateType targetStateType)
+        protected void RemoveTargetState(GameStateType targetStateType)
         {
             _targetStates.Remove(targetStateType);
         }
@@ -83,9 +83,9 @@ namespace Jam
         /// </summary>
         /// <param name="targetStateType">Type of the transition target.</param>
         /// <returns>True, if targetStateType is a valid target. False otherwise.</returns>
-        public bool IsValidTarget(StateType targetStateType)
+        public bool IsValidTarget(GameStateType targetStateType)
         {
-            foreach (StateType stateType in _targetStates)
+            foreach (GameStateType stateType in _targetStates)
             {
                 if (stateType == targetStateType)
                 {

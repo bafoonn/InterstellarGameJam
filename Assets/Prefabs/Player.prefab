@@ -227,10 +227,15 @@ MonoBehaviour:
   _speed: 4
   _acceleration: 30
   _deceleration: 30
-  _jumpHeight: 4
+  _jumpHeight: 3
+  _checkRange: 0.1
+  _checkOffset: {x: 0.25, y: 0.45}
+  _wallCheckLayer:
+    serializedVersion: 2
+    m_Bits: 1
   _groundCheck: {x: 0, y: -0.5}
   _checkRadius: 0.25
-  _checkLayer:
+  _groundCheckLayer:
     serializedVersion: 2
     m_Bits: 1
 --- !u!1 &4483032365943005281
@@ -377,6 +382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81e283ff22b919642847d02521054466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _thrownUmbrellaPrefab: {fileID: 3694068814823767964, guid: 15f6747e0bdf17646ba7bf4d00f160a7, type: 3}
+  _stopLayers:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!1 &4942742783253854713
 GameObject:
   m_ObjectHideFlags: 0

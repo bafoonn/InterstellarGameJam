@@ -8,13 +8,13 @@ namespace Jam
     {
         public override string SceneName => "MainMenu";
 
-        public override StateType Type => StateType.MainMenu;
+        public override GameStateType Type => GameStateType.MainMenu;
 
         public MainMenuState() : base()
         {
-            AddTargetState(StateType.StageSelect);
-            AddTargetState(StateType.Options);
-            AddTargetState(StateType.Credits);
+            AddTargetState(GameStateType.StageSelect);
+            AddTargetState(GameStateType.Options);
+            AddTargetState(GameStateType.Credits);
         }
     }
 }

@@ -3,7 +3,7 @@
 	/// <summary>
 	/// Represents the type of a state.
 	/// </summary>
-	public enum StateType
+	public enum GameStateType
 	{
 		None,
 		MainMenu,

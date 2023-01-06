@@ -8,13 +8,13 @@ namespace Jam
     {
         public override string SceneName => "StageEnd";
 
-        public override StateType Type => StateType.StageEnd;
+        public override GameStateType Type => GameStateType.StageEnd;
 
         public StageEndState() : base()
         {
-            AddTargetState(StateType.MainMenu);
-            AddTargetState(StateType.Stage);
-            AddTargetState(StateType.StageSelect);
+            AddTargetState(GameStateType.MainMenu);
+            AddTargetState(GameStateType.Stage);
+            AddTargetState(GameStateType.StageSelect);
         }
     }
 }
