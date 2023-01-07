@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 472783732}
   - component: {fileID: 472783731}
   - component: {fileID: 472783730}
+  - component: {fileID: 472783733}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -252,6 +253,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &472783733
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472783729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AssetsPPU: 16
+  m_RefResolutionX: 320
+  m_RefResolutionY: 180
+  m_UpscaleRT: 0
+  m_PixelSnapping: 0
+  m_CropFrameX: 0
+  m_CropFrameY: 0
+  m_StretchFill: 0
 --- !u!1 &1532694924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1788,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 18
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 16
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2426,8 +2447,8 @@ Tilemap:
     m_Data: {fileID: -1321289607, guid: e912df5a4a665d74f97ff21e934bf384, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: -1292561689, guid: e912df5a4a665d74f97ff21e934bf384, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: -1909493760, guid: e912df5a4a665d74f97ff21e934bf384, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 3
     m_Data: {fileID: 1146020410, guid: e912df5a4a665d74f97ff21e934bf384, type: 3}
   - m_RefCount: 2
@@ -2444,8 +2465,8 @@ Tilemap:
     m_Data: {fileID: -887371780, guid: e912df5a4a665d74f97ff21e934bf384, type: 3}
   - m_RefCount: 9
     m_Data: {fileID: 1752350942, guid: e912df5a4a665d74f97ff21e934bf384, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1909493760, guid: e912df5a4a665d74f97ff21e934bf384, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -62822858, guid: e912df5a4a665d74f97ff21e934bf384, type: 3}
   - m_RefCount: 1
