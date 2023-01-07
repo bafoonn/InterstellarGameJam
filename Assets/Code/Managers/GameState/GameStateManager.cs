@@ -184,11 +184,6 @@ namespace Jam
 		{
 			return Go(PreviousState.Type, false, StageIndex);
 		}
-
-		public bool GoNextStage()
-        {
-			return Go(GameStateType.Stage, false, StageIndex++);
-        }
 		#endregion
 	}
 }
