@@ -8,21 +8,30 @@ namespace Jam
 {
     [RequireComponent(typeof(CharacterMover))]
     [RequireComponent(typeof(Rigidbody2D))]
-    public class Player : MonoBehaviour
+    [RequireComponent(typeof(PlayerInput))]
+    public class Player : MonoBehaviour, IPlayerColor
     {
         // Private Implementation
         private CharacterMover _mover;
+        private PlayerInput _playerInput;
         private Umbrella _umbrella;
         private UmbrellaSensor _sensor;
 
+        private StageManager _manager;
+
+        [SerializeField] private PlayerColor _playerColor;
+
         public Vector2 MoveInput { get; private set; }
         public bool HoldUpInput { get; private set; }
+
+        public PlayerColor Color => _playerColor;
 
         private void Awake()
         {
             _mover = GetComponent<CharacterMover>();
             _umbrella = GetComponentInChildren<Umbrella>();
             _sensor = GetComponentInChildren<UmbrellaSensor>();
+            _playerInput = GetComponent<PlayerInput>();
 
             Debug.Assert(_sensor != null, $"{name} cannot find MovementSensor component in children.");
             Debug.Assert(_umbrella != null, $"{name} cannot find Umbrella component in children.");
@@ -32,16 +41,15 @@ namespace Jam
 
         private void Update()
         {
-            //Vector2 xVelocity = _moveInput;
+            _playerInput.enabled = !_manager.IsPaused;
+
             if (_sensor.Umbrella)
             {
-                //xVelocity = _moveInput + _sensor.Umbrella.Velocity;
                 _mover.MoveOnTop(MoveInput, _sensor.Umbrella.Rigidbody);
             }  
             else
             {
                 _mover.Move(MoveInput);
-
             }
         }
 
@@ -67,11 +75,13 @@ namespace Jam
         {
             if (callback.started)
             {
-                //Throw?.Invoke();
                 _umbrella.Throw();
-                callback.action.WasPerformedThisFrame();
             }
+        }
 
+        public void Setup(StageManager manager)
+        {
+            _manager = manager;
         }
     }
 }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1343021790739515553}
   - component: {fileID: -39514256292359539}
   - component: {fileID: 430982070088446193}
+  - component: {fileID: 3983107876377839650}
   - component: {fileID: 7864060215478884979}
   - component: {fileID: -7014429059866673737}
   - component: {fileID: 1004941218198312184}
@@ -110,7 +111,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &430982070088446193
 BoxCollider2D:
@@ -119,7 +120,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3816774468819563947}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -138,6 +139,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1}
   m_EdgeRadius: 0
+--- !u!70 &3983107876377839650
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3816774468819563947}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.5, y: 1}
+  m_Direction: 0
 --- !u!114 &7864060215478884979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -227,11 +244,13 @@ MonoBehaviour:
   _speed: 4
   _acceleration: 30
   _deceleration: 30
-  _jumpHeight: 3
+  _jumpHeight: 2.5
   _jumpSpeedMultiplier: 0.5
   _movement: {x: 0, y: 0}
   _checkRange: 0.1
   _checkOffset: {x: 0.25, y: 0.45}
+  _leftWallDistance: 0
+  _rightWallDistance: 0
   _wallCheckLayer:
     serializedVersion: 2
     m_Bits: 1

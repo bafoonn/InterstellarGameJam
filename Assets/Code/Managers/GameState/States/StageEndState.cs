@@ -10,6 +10,8 @@ namespace Jam
 
         public override GameStateType Type => GameStateType.StageEnd;
 
+        public override bool IsAdditive => true;
+
         public StageEndState() : base()
         {
             AddTargetState(GameStateType.MainMenu);

@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -7014429059866673737, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: _playerColor
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 122622871508763264, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_RootOrder
       value: 0
