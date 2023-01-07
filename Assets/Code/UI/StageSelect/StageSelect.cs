@@ -1,21 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Jam
 {
     public class StageSelect : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public void MainMenu()
         {
-        
-        }
-
-        // Update is called once per frame
-        void Update()
-        {
-        
+            GameStateManager.Instance.Go(GameStateType.MainMenu);
         }
     }
 }

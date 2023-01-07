@@ -166,7 +166,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f2a4aa8d36b064ba1daeb8078d9acc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loadTime: 0.1
+  loadTime: 0.2
   image: {fileID: 2900356154195899068}
 --- !u!1 &8971290247025791879
 GameObject:
@@ -227,7 +227,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
 --- !u!114 &6541703867974015663
 MonoBehaviour:
