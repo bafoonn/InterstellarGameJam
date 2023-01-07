@@ -123,6 +123,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: c82d87c2-7804-48d7-b789-15d4bc4d6e36
     m_ActionName: Function/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2869358713311492269}
+        m_TargetAssemblyTypeName: Jam.StageManager, Assembly-CSharp
+        m_MethodName: OnRestart
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: b2a90b31-689b-4e6a-ad86-d3924ecc878d
+    m_ActionName: Function/Restart[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Function

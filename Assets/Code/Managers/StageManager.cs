@@ -14,7 +14,6 @@ namespace Jam
         private bool _isBlueOnExit = false;
         private bool _isRedOnExit = false;
 
-        [field: SerializeField]
         public bool IsPaused { get; private set; } = false;
 
         private void Start()
@@ -103,6 +102,11 @@ namespace Jam
             {
                 GameStateManager.Instance.GoBack();
             }
+        }
+
+        public void OnRestart(InputAction.CallbackContext callback)
+        {
+            if (callback.started) GameStateManager.Instance.RestartStage();
         }
     }
 }

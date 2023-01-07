@@ -147,6 +147,12 @@ namespace Jam
 				return false;
 			}
 
+			if (targetStateType == GameStateType.Stage && stageIndex == 0)
+            {
+				Debug.Log($"Stage Index of {stageIndex} is not valid.");
+				return false;
+            }
+
 			// Select loader based on next state
 			_currentLoader = GetLoader(nextState);
 
@@ -184,6 +190,11 @@ namespace Jam
 		{
 			return Go(PreviousState.Type, false, StageIndex);
 		}
+
+		public bool RestartStage()
+        {
+			return Go(GameStateType.Stage, true, StageIndex);
+        }
 		#endregion
 	}
 }
