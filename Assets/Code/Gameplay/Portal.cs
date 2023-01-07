@@ -27,9 +27,7 @@ namespace Jam
         {
             if(collision.TryGetComponent(out IPlayerColor player))
             {
-                if (player.Color == _color)
-                    Debug.Log($"{player.Color} entered");
-                    Entered?.Invoke(player.Color);
+                if (player.Color == _color) Entered?.Invoke(player.Color);
             }
         }
 

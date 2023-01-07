@@ -10,6 +10,8 @@ namespace Jam
 
         public override GameStateType Type => GameStateType.Options;
 
+        public override bool IsAdditive => true;
+
         public OptionsState() : base()
         {
             AddTargetState(GameStateType.MainMenu);

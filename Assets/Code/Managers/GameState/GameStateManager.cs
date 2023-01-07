@@ -21,6 +21,7 @@ namespace Jam
 
 		private ILoader _currentLoader;
 		private ILoader[] _loaders;
+
         #endregion
 
         #region Properties
@@ -35,6 +36,12 @@ namespace Jam
 			get;
 			private set;
 		}
+
+		public int StageIndex
+        {
+			get;
+			private set;
+        }
         #endregion
 
         #region Private implementation
@@ -102,7 +109,7 @@ namespace Jam
 		}
 
 
-		private IEnumerator TransitionTo(GameStateBase next, bool forceLoad = false)
+		private IEnumerator TransitionTo(GameStateBase next, bool forceLoad)
         {
 			StartCoroutine(_currentLoader.TransitionIn(_currentLoader.LoadTime));
 			yield return new WaitUntil(() => _currentLoader.Active == true);
@@ -110,7 +117,7 @@ namespace Jam
 			PreviousState.Deactivate();
 
 			CurrentState = next;
-			CurrentState.Activate(forceLoad);
+			CurrentState.Activate(forceLoad, StageIndex);
 			yield return new WaitForEndOfFrame();
 			StartCoroutine(_currentLoader.TransitionOut(_currentLoader.LoadTime));
 			StateChanged?.Invoke(CurrentState);
@@ -143,6 +150,8 @@ namespace Jam
 			// Select loader based on next state
 			_currentLoader = GetLoader(nextState);
 
+			if(targetStateType == GameStateType.Stage) StageIndex = stageIndex;
+
 			// Transition from current state to the target state
 			if(_currentLoader == null)
 			{
@@ -150,7 +159,7 @@ namespace Jam
 				PreviousState.Deactivate();
 
 				CurrentState = nextState;
-				CurrentState.Activate(forceLoad);
+				CurrentState.Activate(forceLoad, StageIndex);
 				StateChanged?.Invoke(CurrentState);
 			}
 			else StartCoroutine(TransitionTo(nextState, forceLoad));
@@ -173,8 +182,13 @@ namespace Jam
 		/// <returns>True, if the transition succeeds. False otherwise.</returns>
 		public bool GoBack()
 		{
-			return Go(PreviousState.Type, false);
+			return Go(PreviousState.Type, false, StageIndex);
 		}
+
+		public bool GoNextStage()
+        {
+			return Go(GameStateType.Stage, false, StageIndex++);
+        }
 		#endregion
 	}
 }

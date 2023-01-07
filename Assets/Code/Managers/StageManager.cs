@@ -19,7 +19,7 @@ namespace Jam
 
         private void Start()
         {
-            _spawnPoints = FindObjectsOfType<PlayerSpawnPoint>();
+            _spawnPoints = GetComponentsInChildren<PlayerSpawnPoint>();
 
             Debug.Assert(_spawnPoints.Any(spawn => spawn.Color == PlayerColor.Blue), $"{name} cannot find BlueSpawnPoint.");
             Debug.Assert(_spawnPoints.Any(spawn => spawn.Color == PlayerColor.Red), $"{name} cannot find RedSpawnPoint.");
