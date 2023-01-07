@@ -34,8 +34,8 @@ namespace Jam
         [Header("WallCheck")]
         [SerializeField] private float _checkRange = 1f;
         [SerializeField] private Vector2 _checkOffset; 
-        private float _leftWallDistance;
-        private float _rightWallDistance;
+        [SerializeField] private float _leftWallDistance;
+        [SerializeField] private float _rightWallDistance;
         [SerializeField] private LayerMask _wallCheckLayer;
 
         private bool _isGrounded;
@@ -101,7 +101,6 @@ namespace Jam
             return false;
         }
 
-
         /// <summary>
         /// Returns the current speed based on movement input.<br></br>
         /// Changes private vector field to enable acceleration/deceleration.
@@ -145,7 +144,7 @@ namespace Jam
         {
             _currentSpeed = GetSpeed(moveInput);
 
-            FlipSprite(_velocity.x);
+            FlipSprite(moveInput.x);
             
             _rigidbody.velocity = new Vector2(_velocity.x * _currentSpeed * _currentJumpMultiplier, _rigidbody.velocity.y);
         }
@@ -160,7 +159,7 @@ namespace Jam
             _currentSpeed = GetSpeed(moveInput);
 
             float xVelocity = rigidbody.velocity.x + _velocity.x * _currentSpeed * _currentJumpMultiplier;
-            FlipSprite(_velocity.x);
+            FlipSprite(moveInput.x);
 
             _rigidbody.velocity = new Vector2(xVelocity, _rigidbody.velocity.y);
         }
@@ -183,12 +182,6 @@ namespace Jam
             Gizmos.color = Color.yellow;
             Vector2 pos = (Vector2)transform.position + _groundCheck;
             Gizmos.DrawWireSphere(pos, _checkRadius);
-
-            //pos = (Vector2)transform.position + new Vector2(-_checkOffset.x, _checkOffset.y);
-            //Gizmos.DrawLine(pos, pos - new Vector2(_checkRange, 0));
-
-            //pos = (Vector2)transform.position + _checkOffset;
-            //Gizmos.DrawLine(pos, pos + new Vector2(_checkRange, 0));
         }
     }
 }

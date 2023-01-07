@@ -11,12 +11,12 @@ TagManager:
   - 
   - Water
   - UI
-  - Red
-  - Blue
+  - RedGround
+  - BlueGround
   - RedPlayer
   - BluePlayer
-  - RedUmbrella
-  - BlueUmbrella
+  - RedObject
+  - BlueObject
   - 
   - 
   - 

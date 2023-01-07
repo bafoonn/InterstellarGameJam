@@ -13,7 +13,7 @@ namespace Jam
         private BoxCollider2D _collider;
         private SpriteRenderer _renderer;
         public bool IsThrown { get; private set; }
-        public Vector2 ThrowDirection { get; private set; } = Vector2.right;
+        public Vector2 ThrowDirection { get; private set; } = Vector2.left;
 
         [SerializeField] private ThrownUmbrella _thrownUmbrellaPrefab;
         [SerializeField] private LayerMask _stopLayers;

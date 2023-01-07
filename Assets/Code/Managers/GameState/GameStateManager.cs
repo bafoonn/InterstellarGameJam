@@ -123,7 +123,7 @@ namespace Jam
 		/// </summary>
 		/// <param name="targetStateType">The type of the target state.</param>
 		/// <returns>True, if transition is legal and can be done. False otherwise.</returns>
-		public bool Go(GameStateType targetStateType, bool forceLoad, int stageIndex = 0)
+		public bool Go(GameStateType targetStateType, bool forceLoad = false, int stageIndex = 0)
 		{
 			// Check the legality of the transition
 			if (!CurrentState.IsValidTarget(targetStateType))
