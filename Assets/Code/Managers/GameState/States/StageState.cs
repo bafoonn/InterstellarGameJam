@@ -14,6 +14,7 @@ namespace Jam
         {
             AddTargetState(GameStateType.MainMenu);
             AddTargetState(GameStateType.Options);
+            AddTargetState(GameStateType.Stage);
             AddTargetState(GameStateType.StageEnd);
         }
     }
