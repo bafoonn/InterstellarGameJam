@@ -16,6 +16,7 @@ namespace Jam
         private PlayerInput _playerInput;
         private Umbrella _umbrella;
         private UmbrellaSensor _sensor;
+        private PlayerAnimations _animations;
 
         private StageManager _manager;
 
@@ -31,10 +32,12 @@ namespace Jam
             _mover = GetComponent<CharacterMover>();
             _umbrella = GetComponentInChildren<Umbrella>();
             _sensor = GetComponentInChildren<UmbrellaSensor>();
+            _animations = GetComponentInChildren<PlayerAnimations>();
             _playerInput = GetComponent<PlayerInput>();
 
             Debug.Assert(_sensor != null, $"{name} cannot find MovementSensor component in children.");
             Debug.Assert(_umbrella != null, $"{name} cannot find Umbrella component in children.");
+            Debug.Assert(_animations != null, $"{name} cannot find PlayerAnimations component in children.");
 
             _umbrella.Setup(this, GetComponent<Rigidbody2D>());
         }
@@ -51,6 +54,8 @@ namespace Jam
             {
                 _mover.Move(MoveInput);
             }
+
+            _animations.UpdateAnimations(MoveInput, _mover.IsGrounded, HoldUpInput, _umbrella.IsThrown);
         }
 
         public void OnMove(InputAction.CallbackContext callback)
@@ -68,6 +73,7 @@ namespace Jam
             if(callback.started)
             {
                 _mover.Jump();
+                _animations.Jump();
             }
         }
 
@@ -76,6 +82,7 @@ namespace Jam
             if (callback.started)
             {
                 _umbrella.Throw();
+                if(_umbrella.IsThrown) _animations.Throw();
             }
         }
 

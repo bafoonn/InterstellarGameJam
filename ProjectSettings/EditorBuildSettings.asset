@@ -9,6 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: f8da0f0ae2fc46542a8ae99cdd72e7cf
   - enabled: 1
+    path: Assets/Scenes/Options.unity
+    guid: 22324c214f312a14796375c19372b4f7
+  - enabled: 1
+    path: Assets/Scenes/StageEnd.unity
+    guid: 66b87cbbe5597af45b23f2578850365e
+  - enabled: 1
+    path: Assets/Scenes/StageSelect.unity
+    guid: e8ab2b81e0014ee47ae1cc59a4b17932
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 8cd827658dc65654e88ff44ec2b8a5ac
+  - enabled: 1
     path: Assets/Scenes/Stages/Stage1.unity
     guid: 5fabeeac61d367a4fbb2583a5b4c5767
   - enabled: 1
@@ -27,15 +39,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Stages/Stage6.unity
     guid: 79948fda5f9d3c944847907a87b7c1b6
   - enabled: 1
-    path: Assets/Scenes/Options.unity
-    guid: 22324c214f312a14796375c19372b4f7
-  - enabled: 1
-    path: Assets/Scenes/StageSelect.unity
-    guid: e8ab2b81e0014ee47ae1cc59a4b17932
-  - enabled: 1
-    path: Assets/Scenes/StageEnd.unity
-    guid: 66b87cbbe5597af45b23f2578850365e
-  - enabled: 1
-    path: Assets/Scenes/Credits.unity
-    guid: 8cd827658dc65654e88ff44ec2b8a5ac
+    path: Assets/Scenes/Stages/Stage7.unity
+    guid: fbb0267d85a71104bacc95a70e82eb68
   m_configObjects: {}

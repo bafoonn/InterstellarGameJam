@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: _stopLayers.m_Bits
       value: 129
       objectReference: {fileID: 0}
+    - target: {fileID: 2649280819715950364, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b80ed833bcae8d74d8ab79054f0147a0, type: 2}
     - target: {fileID: 3816774468819563947, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Name
       value: Red
@@ -98,6 +102,22 @@ PrefabInstance:
     - target: {fileID: 3816774468819563947, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4033393221332174588, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: bff704652816af04983a4a9d0fa7ed97, type: 2}
+    - target: {fileID: 4324829788067959475, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4324829788067959475, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ceb1eb1162abff4f89bbb9bcaa641a6, type: 3}
+    - target: {fileID: 4324829788067959475, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4483032365943005281, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Layer

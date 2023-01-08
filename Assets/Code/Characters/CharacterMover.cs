@@ -5,11 +5,9 @@ using UnityEngine;
 namespace Jam
 {
     [RequireComponent(typeof(Rigidbody2D))]
-    [RequireComponent(typeof(SpriteRenderer))]
     public class CharacterMover : MonoBehaviour
     {
         private Rigidbody2D _rigidbody;
-        private SpriteRenderer _renderer;
 
         private float _currentSpeed;
         [Header("Movement")]
@@ -20,14 +18,14 @@ namespace Jam
         [SerializeField] private float _jumpSpeedMultiplier = 0.5f;
         private float _currentJumpMultiplier;
         
-        [SerializeField]
-        private Vector2 _movement;
+        [field: SerializeField]
+        public Vector2 Movement { get; private set; }
         private Vector2 _velocity
         {
-            get => _movement;
+            get => Movement;
             set
             {
-                _movement = new Vector2(Mathf.Clamp(value.x, _leftWallDistance, _rightWallDistance), value.y);
+                Movement = new Vector2(Mathf.Clamp(value.x, _leftWallDistance, _rightWallDistance), value.y);
             }
         }
 
@@ -38,7 +36,7 @@ namespace Jam
         [SerializeField] private float _rightWallDistance;
         [SerializeField] private LayerMask _wallCheckLayer;
 
-        private bool _isGrounded;
+        public bool IsGrounded { get; private set; }
         [Header("GroundCheck")]
         [SerializeField] private Vector2 _groundCheck = new Vector2(0, -0.5f);
         [SerializeField] private float _checkRadius = 0.5f;
@@ -47,7 +45,6 @@ namespace Jam
         private void Awake()
         {
             _rigidbody = GetComponent<Rigidbody2D>();
-            _renderer = GetComponent<SpriteRenderer>();
         }
 
         private void Update()
@@ -59,7 +56,7 @@ namespace Jam
         private bool CheckIfGrounded()
         {
             Vector2 checkPos = _rigidbody.position + _groundCheck;
-            return _isGrounded = Physics2D.OverlapCircle(checkPos, _checkRadius, _groundCheckLayer);
+            return IsGrounded = Physics2D.OverlapCircle(checkPos, _checkRadius, _groundCheckLayer);
         }
 
         private void CheckWalls()
@@ -121,30 +118,12 @@ namespace Jam
         }
 
         /// <summary>
-        /// Flips the sprite on the x-axis based on velocity;
-        /// </summary>
-        /// <param name="xVelocity">Determines if the sprite is flipped. Positive = flipped</param>
-        private void FlipSprite(float xVelocity)
-        {
-            if(xVelocity > 0)
-            {
-                _renderer.flipX = true;
-            }
-            else if(xVelocity < 0)
-            {
-                _renderer.flipX = false;
-            }
-        }
-
-        /// <summary>
         /// Moves the character on the x-axis.
         /// </summary>
         /// <param name="moveInput">Determines the movement direction.</param>
         public void Move(Vector2 moveInput)
         {
             _currentSpeed = GetSpeed(moveInput);
-
-            FlipSprite(moveInput.x);
             
             _rigidbody.velocity = new Vector2(_velocity.x * _currentSpeed * _currentJumpMultiplier, _rigidbody.velocity.y);
         }
@@ -159,7 +138,6 @@ namespace Jam
             _currentSpeed = GetSpeed(moveInput);
 
             float xVelocity = rigidbody.velocity.x + _velocity.x * _currentSpeed * _currentJumpMultiplier;
-            FlipSprite(moveInput.x);
 
             _rigidbody.velocity = new Vector2(xVelocity, _rigidbody.velocity.y);
         }
@@ -169,7 +147,7 @@ namespace Jam
         /// </summary>
         public void Jump()
         {
-            if(_isGrounded)
+            if(IsGrounded)
             {
                 float jumpVelocity = Mathf.Sqrt(_jumpHeight * -2f * Physics2D.gravity.y);
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpVelocity);
