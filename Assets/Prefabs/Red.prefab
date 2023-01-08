@@ -91,6 +91,10 @@ PrefabInstance:
       propertyPath: _stopLayers.m_Bits
       value: 129
       objectReference: {fileID: 0}
+    - target: {fileID: 1636478323766968614, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
+      propertyPath: _thrownUmbrellaPrefab
+      value: 
+      objectReference: {fileID: 378718575387743488, guid: 2f223e7fc7d1c1a4fb30a195f11a7dbf, type: 3}
     - target: {fileID: 2649280819715950364, guid: 762bfe75996312a4894bb97d13d146f8, type: 3}
       propertyPath: m_Controller
       value: 

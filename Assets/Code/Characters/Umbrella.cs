@@ -6,12 +6,10 @@ using UnityEngine;
 namespace Jam
 {
     [RequireComponent(typeof(BoxCollider2D))]
-    [RequireComponent(typeof(SpriteRenderer))]
     public class Umbrella : MonoBehaviour
     {
         private Player _player;
         private BoxCollider2D _collider;
-        private SpriteRenderer _renderer;
         public bool IsThrown { get; private set; }
         public Vector2 ThrowDirection { get; private set; } = Vector2.left;
 
@@ -25,12 +23,11 @@ namespace Jam
         private void Awake()
         {
             _collider = GetComponent<BoxCollider2D>();
-            _renderer = GetComponent<SpriteRenderer>();
 
             Debug.Assert(_thrownUmbrellaPrefab != null, $"{name} has not been set in the inspector.");
 
             _thrownUmbrella = Instantiate(_thrownUmbrellaPrefab);
-            _thrownUmbrella.Setup(this, _renderer.color, _stopLayers);
+            _thrownUmbrella.Setup(this, _stopLayers);
         }
 
         private void Update()
@@ -61,7 +58,6 @@ namespace Jam
             }
 
             
-            _renderer.enabled = false;
             IsThrown = !IsThrown;
 
             _thrownUmbrella.Throw(Rigidbody.position, ThrowDirection);
@@ -73,7 +69,6 @@ namespace Jam
         {
             _thrownUmbrella.Recall();
 
-            _renderer.enabled = true;
             IsThrown = !IsThrown;
 
         }

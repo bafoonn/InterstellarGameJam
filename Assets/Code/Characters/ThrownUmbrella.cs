@@ -34,6 +34,8 @@ namespace Jam
         {
             Reset(position);
 
+            _renderer.flipX = direction.x > 0;
+
             _rigidbody.velocity = direction * _speed;
         }
 
@@ -56,11 +58,10 @@ namespace Jam
             Disable();
         }
 
-        public void Setup(Umbrella parent, Color color, LayerMask checkLayer)
+        public void Setup(Umbrella parent, LayerMask checkLayer)
         {
             _parent = parent;
             _checkLayer = checkLayer;
-            _renderer.color = color;
             gameObject.layer = parent.gameObject.layer;
             Disable();
         }
