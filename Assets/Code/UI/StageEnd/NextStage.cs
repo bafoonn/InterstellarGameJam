@@ -22,7 +22,7 @@ namespace Jam
         private bool NextStageExists()
         {
             _nextStageIndex = GameStateManager.Instance.StageIndex + 1;
-            Scene nextStage = SceneManager.GetSceneByName($"Stage{_nextStageIndex}");
+            Scene nextStage = SceneManager.GetSceneByBuildIndex(_nextStageIndex);
             return nextStage.IsValid();
         }
     }

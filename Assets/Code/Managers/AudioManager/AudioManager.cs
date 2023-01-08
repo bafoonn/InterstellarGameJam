@@ -13,20 +13,31 @@ namespace Jam
         [SerializeField] private AudioSource _sfxSourceTemplate;
         private List<AudioSource> _sfxSources = new();
 
+        [SerializeField] private List<SoundEffect> _soundEffects = new();
+
         protected override void Init()
         {
             Debug.Assert(_mixer != null, $"{name} has no AudioMixer set in the inspector.");
             Debug.Assert(_sfxSourceTemplate != null, $"{name} has no SfxSourceTemplate set in the inspector.");
         }
 
-        public void PlaySound(AudioClip clip, bool addPitch = true)
+        public void PlaySound(string effectName, bool addPitch = true)
         {
-            AudioSource source;
-            if (_sfxSources.Exists(s => s.clip == clip))
+            // Get clip
+            AudioClip clip = _soundEffects.SingleOrDefault(sfx => sfx.Name.ToLower().Equals(effectName.ToLower())).Clip;
+
+            // Check if there is a clip to be played.
+            if (clip == null)
             {
-                source = _sfxSources.Single(s => s.clip == clip);
+                Debug.LogWarning($"{effectName} sound effect has no AudioClip.");
+                return;
             }
-            else
+
+            // Get source
+            AudioSource source = _sfxSources.SingleOrDefault(src => src.clip == clip);
+
+            // If no source is found, create a new one
+            if(source == null)
             {
                 source = Instantiate(_sfxSourceTemplate, transform);
                 source.clip = clip;
@@ -34,6 +45,7 @@ namespace Jam
             }
 
             source.Stop();
+
             if (addPitch)
             {
                 source.pitch = 1 + Random.Range(0, 0.2f);

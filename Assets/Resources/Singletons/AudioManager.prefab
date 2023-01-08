@@ -322,3 +322,16 @@ MonoBehaviour:
   _mixer: {fileID: 24100000, guid: b2d03bf2c93b1454390b398c93a9e787, type: 2}
   _baseVolume: 0.5
   _sfxSourceTemplate: {fileID: 6724582730481529564}
+  _soundEffects:
+  - <Name>k__BackingField: Jump
+    <Clip>k__BackingField: {fileID: 8300000, guid: e14063c8ed7c7d14d8c74e4ef50dde34, type: 3}
+  - <Name>k__BackingField: Throw
+    <Clip>k__BackingField: {fileID: 8300000, guid: 15d6ec6633d9ba24a98fffeb33f89e4c, type: 3}
+  - <Name>k__BackingField: Click
+    <Clip>k__BackingField: {fileID: 8300000, guid: d21f55bfa7e657648ad074529f5af4f4, type: 3}
+  - <Name>k__BackingField: EnterPortal
+    <Clip>k__BackingField: {fileID: 8300000, guid: f82256d2181b84343812c89a802fd6df, type: 3}
+  - <Name>k__BackingField: ExitPortal
+    <Clip>k__BackingField: {fileID: 8300000, guid: 497397faaf5f27c4eaf56840f9935b72, type: 3}
+  - <Name>k__BackingField: UmbrellaUp
+    <Clip>k__BackingField: {fileID: 8300000, guid: a2cdee465dad74745a5d86253ebf938f, type: 3}
