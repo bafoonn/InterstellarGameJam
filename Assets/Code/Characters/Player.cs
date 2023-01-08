@@ -55,7 +55,7 @@ namespace Jam
                 _mover.Move(MoveInput);
             }
 
-            _animations.UpdateAnimations(MoveInput, _mover.IsGrounded, HoldUpInput, _umbrella.IsThrown);
+            _animations.UpdateAnimations(this, _mover.CurrentSpeed, _mover.IsGrounded, _umbrella.IsThrown);
         }
 
         public void OnMove(InputAction.CallbackContext callback)

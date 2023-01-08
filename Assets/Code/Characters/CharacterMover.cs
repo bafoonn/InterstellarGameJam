@@ -9,8 +9,7 @@ namespace Jam
     {
         private Rigidbody2D _rigidbody;
 
-        [SerializeField]
-        private float _currentSpeed;
+        public float CurrentSpeed;
         [Header("Movement")]
         [SerializeField] private float _speed = 5f;
         [SerializeField] private float _acceleration = 10f;
@@ -110,12 +109,12 @@ namespace Jam
         {
             if (moveInput.Equals(Vector2.zero))
             {
-                return Mathf.MoveTowards(_currentSpeed, 0, _deceleration * Time.deltaTime);
+                return Mathf.MoveTowards(CurrentSpeed, 0, _deceleration * Time.deltaTime);
             }
             else
             {
-                _velocity = transform.right * moveInput.x * _currentSpeed;
-                return Mathf.MoveTowards(_currentSpeed, _speed, _acceleration * Time.deltaTime);
+                _velocity = transform.right * moveInput.x * CurrentSpeed;
+                return Mathf.MoveTowards(CurrentSpeed, _speed, _acceleration * Time.deltaTime);
             }
         }
 
@@ -125,9 +124,9 @@ namespace Jam
         /// <param name="moveInput">Determines the movement direction.</param>
         public void Move(Vector2 moveInput)
         {
-            _currentSpeed = GetSpeed(moveInput);
+            CurrentSpeed = GetSpeed(moveInput);
             
-            _rigidbody.velocity = new Vector2(_velocity.x * _currentSpeed * _currentJumpMultiplier, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(_velocity.x * CurrentSpeed * _currentJumpMultiplier, _rigidbody.velocity.y);
         }
 
         /// <summary>
@@ -137,9 +136,9 @@ namespace Jam
         /// <param name="rigidbody">Rigidbodys velocity is added to CharacterMovers velocity.</param>
         public void MoveOnTop(Vector2 moveInput, Rigidbody2D rigidbody)
         {
-            _currentSpeed = GetSpeed(moveInput);
+            CurrentSpeed = GetSpeed(moveInput);
 
-            float xVelocity = rigidbody.velocity.x + _velocity.x * _currentSpeed * _currentJumpMultiplier;
+            float xVelocity = rigidbody.velocity.x + _velocity.x * CurrentSpeed * _currentJumpMultiplier;
 
             _rigidbody.velocity = new Vector2(xVelocity, _rigidbody.velocity.y);
         }
@@ -153,7 +152,7 @@ namespace Jam
             {
                 float jumpVelocity = Mathf.Sqrt(_jumpHeight * -2f * Physics2D.gravity.y);
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpVelocity);
-                _currentJumpMultiplier = 1 + (_jumpSpeedMultiplier * (_currentSpeed / _speed));
+                _currentJumpMultiplier = 1 + (_jumpSpeedMultiplier * (CurrentSpeed / _speed));
                 AudioManager.Instance.PlaySound("Jump");
             }
         }

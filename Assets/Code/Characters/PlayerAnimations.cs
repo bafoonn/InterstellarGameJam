@@ -33,9 +33,9 @@ namespace Jam
             }
         }
 
-        public void UpdateAnimations(Vector2 movement, bool isGrounded, bool isUmbrella, bool isThrown)
+        public void UpdateAnimations(Player player, float speed, bool isGrounded, bool isThrown)
         {
-            if(isUmbrella && !isThrown)
+            if(player.HoldUpInput && !isThrown)
             {
                 _animator.SetLayerWeight(_umbrellaLayer, 1);
             }
@@ -46,8 +46,8 @@ namespace Jam
 
             _animator.SetBool("OnGround", isGrounded);
 
-            _animator.SetFloat("Speed", Mathf.Abs(movement.x));
-            FlipSprite(movement.x);
+            _animator.SetFloat("Speed", Mathf.Abs(speed));
+            FlipSprite(player.MoveInput.x);
         }
 
         public void Jump()
