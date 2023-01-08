@@ -152,8 +152,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 1}
+  m_Offset: {x: 0, y: -0.025}
+  m_Size: {x: 0.5, y: 0.95}
   m_Direction: 0
 --- !u!114 &7864060215478884979
 MonoBehaviour:
@@ -212,6 +212,14 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: b0429568-1066-4fcf-86ac-8fd936900f22
     m_ActionName: Blue/Throw[/Keyboard/rightCtrl]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c82d87c2-7804-48d7-b789-15d4bc4d6e36
+    m_ActionName: Function/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b2a90b31-689b-4e6a-ad86-d3924ecc878d
+    m_ActionName: Function/Restart[/Keyboard/r]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Red
@@ -229,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 524335ac74389b940996825c12801a68, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _playerColor: 0
 --- !u!114 &1004941218198312184
 MonoBehaviour:
   m_ObjectHideFlags: 0
