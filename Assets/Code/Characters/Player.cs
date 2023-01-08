@@ -42,6 +42,11 @@ namespace Jam
             _umbrella.Setup(this, GetComponent<Rigidbody2D>());
         }
 
+        private void OnDisable()
+        {
+            if (_manager) _manager.StageEnd -= OnStageEnd;
+        }
+
         private void Update()
         {
             if(_manager) _playerInput.enabled = !_manager.IsPaused;
@@ -56,6 +61,11 @@ namespace Jam
             }
 
             _animations.UpdateAnimations(this, _mover.CurrentSpeed, _mover.IsGrounded, _umbrella.IsThrown);
+        }
+
+        private void OnStageEnd()
+        {
+            _animations.EnterPortal();
         }
 
         public void OnMove(InputAction.CallbackContext callback)
@@ -97,6 +107,7 @@ namespace Jam
         public void Setup(StageManager manager)
         {
             _manager = manager;
+            _manager.StageEnd += OnStageEnd;
         }
     }
 }

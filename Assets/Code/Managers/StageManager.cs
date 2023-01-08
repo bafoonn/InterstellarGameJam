@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,10 +12,11 @@ namespace Jam
         [SerializeField] private Player _bluePlayerPrefab;
         [SerializeField] private Player _redPlayerPrefab;
         private PlayerSpawnPoint[] _spawnPoints;
-        private bool _isBlueOnExit = false;
-        private bool _isRedOnExit = false;
+        private bool _isBlueOnPortal = false;
+        private bool _isRedOnPortal = false;
 
         public bool IsPaused { get; private set; } = false;
+        public event Action StageEnd;
 
         private void Start()
         {
@@ -24,11 +26,12 @@ namespace Jam
             Debug.Assert(_spawnPoints.Any(spawn => spawn.Color == PlayerColor.Red), $"{name} cannot find RedSpawnPoint.");
 
             PlayerSpawnPoint blueSpawn = _spawnPoints.Single(spawn => spawn.Color == PlayerColor.Blue);
-            Player blue = Instantiate(_bluePlayerPrefab, blueSpawn.transform.position, blueSpawn.transform.rotation);
-            blue.Setup(this);
 
             PlayerSpawnPoint redSpawn = _spawnPoints.Single(spawn => spawn.Color == PlayerColor.Red);
+            Player blue = Instantiate(_bluePlayerPrefab, blueSpawn.transform.position, blueSpawn.transform.rotation);
             Player red = Instantiate(_redPlayerPrefab, redSpawn.transform.position, redSpawn.transform.rotation);
+            AudioManager.Instance.PlaySound("ExitPortal");
+            blue.Setup(this);
             red.Setup(this);
         }
 
@@ -51,17 +54,18 @@ namespace Jam
             switch (color)
             {
                 case PlayerColor.Red:
-                    _isRedOnExit = true;
+                    _isRedOnPortal = true;
                     break;
                 case PlayerColor.Blue:
-                    _isBlueOnExit = true;
+                    _isBlueOnPortal = true;
                     break;
             }
 
-            if (_isRedOnExit && _isBlueOnExit)
+            if (_isRedOnPortal && _isBlueOnPortal)
             {
                 AudioManager.Instance.PlaySound("EnterPortal");
                 GameStateManager.Instance.Go(GameStateType.StageEnd);
+                StageEnd?.Invoke();
             }
         }
 
@@ -70,10 +74,10 @@ namespace Jam
             switch (color)
             {
                 case PlayerColor.Red:
-                    _isRedOnExit = false;
+                    _isRedOnPortal = false;
                     break;
                 case PlayerColor.Blue:
-                    _isBlueOnExit = false;
+                    _isBlueOnPortal = false;
                     break;
             }
         }

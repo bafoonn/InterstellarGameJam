@@ -12,6 +12,8 @@ namespace Jam
 
         public override bool IsAdditive => true;
 
+        public override LoaderType Loader => LoaderType.None;
+
         public StageEndState() : base()
         {
             AddTargetState(GameStateType.MainMenu);

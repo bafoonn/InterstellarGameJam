@@ -59,5 +59,10 @@ namespace Jam
         {
             _animator.SetTrigger("Throw");
         }
+
+        public void EnterPortal()
+        {
+            _animator.SetTrigger("Enter");
+        }
     }
 }
