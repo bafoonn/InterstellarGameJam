@@ -58,7 +58,11 @@ namespace Jam
                     break;
             }
 
-            if (_isRedOnExit && _isBlueOnExit) GameStateManager.Instance.Go(GameStateType.StageEnd);
+            if (_isRedOnExit && _isBlueOnExit)
+            {
+                AudioManager.Instance.PlaySound("EnterPortal");
+                GameStateManager.Instance.Go(GameStateType.StageEnd);
+            }
         }
 
         private void OnPortalExited(PlayerColor color)

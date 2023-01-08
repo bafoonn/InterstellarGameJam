@@ -44,7 +44,7 @@ namespace Jam
 
         private void Update()
         {
-            _playerInput.enabled = !_manager.IsPaused;
+            if(_manager) _playerInput.enabled = !_manager.IsPaused;
 
             if (_sensor.Umbrella)
             {
@@ -65,6 +65,10 @@ namespace Jam
 
         public void OnHoldUp(InputAction.CallbackContext callback)
         {
+            if(callback.started && !_umbrella.IsThrown)
+            {
+                AudioManager.Instance.PlaySound("UmbrellaUp");
+            }
             HoldUpInput = callback.performed;
         }
 
@@ -82,7 +86,11 @@ namespace Jam
             if (callback.started)
             {
                 _umbrella.Throw();
-                if(_umbrella.IsThrown) _animations.Throw();
+                if(_umbrella.IsThrown)
+                {
+                    _animations.Throw();
+                    AudioManager.Instance.PlaySound("Throw");
+                }
             }
         }
 

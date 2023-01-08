@@ -9,6 +9,7 @@ namespace Jam
     {
         private Rigidbody2D _rigidbody;
 
+        [SerializeField]
         private float _currentSpeed;
         [Header("Movement")]
         [SerializeField] private float _speed = 5f;
@@ -16,16 +17,17 @@ namespace Jam
         [SerializeField] private float _deceleration = 10f;
         [SerializeField] private float _jumpHeight = 4;
         [SerializeField] private float _jumpSpeedMultiplier = 0.5f;
-        private float _currentJumpMultiplier;
+        
+        private float _currentJumpMultiplier = 1;
         
         [field: SerializeField]
-        public Vector2 Movement { get; private set; }
+        private Vector2 _movement;
         private Vector2 _velocity
         {
-            get => Movement;
+            get => _movement;
             set
             {
-                Movement = new Vector2(Mathf.Clamp(value.x, _leftWallDistance, _rightWallDistance), value.y);
+                _movement = new Vector2(Mathf.Clamp(value.x, _leftWallDistance, _rightWallDistance), value.y);
             }
         }
 
@@ -151,7 +153,7 @@ namespace Jam
             {
                 float jumpVelocity = Mathf.Sqrt(_jumpHeight * -2f * Physics2D.gravity.y);
                 _rigidbody.velocity = new Vector2(_rigidbody.velocity.x, jumpVelocity);
-                _currentJumpMultiplier = 1 + _jumpSpeedMultiplier * (_currentSpeed / _speed);
+                _currentJumpMultiplier = 1 + (_jumpSpeedMultiplier * (_currentSpeed / _speed));
                 AudioManager.Instance.PlaySound("Jump");
             }
         }
