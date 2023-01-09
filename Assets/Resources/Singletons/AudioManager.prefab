@@ -269,9 +269,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53d131660088d248afbd59b0e031029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _defaultClip: {fileID: 8300000, guid: 86f41872930d3c34ca803156a12c6517, type: 3}
   _fadeTime: 2
   _stateClips:
   - <State>k__BackingField: 4
+    <Clip>k__BackingField: {fileID: 8300000, guid: 583d942aec85d6b4fac47ac56742decb, type: 3}
+  - <State>k__BackingField: 1
+    <Clip>k__BackingField: {fileID: 8300000, guid: 86f41872930d3c34ca803156a12c6517, type: 3}
+  - <State>k__BackingField: 2
+    <Clip>k__BackingField: {fileID: 8300000, guid: 86f41872930d3c34ca803156a12c6517, type: 3}
+  - <State>k__BackingField: 6
     <Clip>k__BackingField: {fileID: 8300000, guid: 583d942aec85d6b4fac47ac56742decb, type: 3}
 --- !u!1 &6264088576652917635
 GameObject:
@@ -320,7 +327,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mixer: {fileID: 24100000, guid: b2d03bf2c93b1454390b398c93a9e787, type: 2}
-  _baseVolume: 0.5
   _sfxSourceTemplate: {fileID: 6724582730481529564}
   _soundEffects:
   - <Name>k__BackingField: Jump
