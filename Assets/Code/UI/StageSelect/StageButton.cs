@@ -11,19 +11,17 @@ namespace Jam
     {
         private Button _button;
         private TextMeshProUGUI _tmp;
-        [SerializeField] private int _stageIndex;
-        public int Index => _stageIndex;
+        private int _stageIndex;
 
         private void Awake()
         {
             _button = GetComponent<Button>();
             _tmp = GetComponentInChildren<TextMeshProUGUI>();
-            _tmp.text = Index.ToString();
         }
 
         private void OnButtonClick()
         {
-            GameStateManager.Instance.Go(GameStateType.Stage, false, Index);
+            GameStateManager.Instance.Go(GameStateType.Stage, false, _stageIndex);
         }
 
         private void OnEnable()
@@ -34,6 +32,13 @@ namespace Jam
         private void OnDisable()
         {
             _button.onClick.RemoveListener(OnButtonClick);
+        }
+
+        public void Setup(int stageIndex)
+        {
+            _stageIndex = stageIndex;
+            _tmp.text = _stageIndex.ToString();
+            gameObject.SetActive(true);
         }
     }
 }
