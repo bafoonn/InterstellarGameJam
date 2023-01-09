@@ -9,7 +9,6 @@ namespace Jam
     public class AudioManager : PersistentSingleton<AudioManager>
     {
         [SerializeField] private AudioMixer _mixer;
-        [SerializeField, Range(0f, 1f)] private float _baseVolume = 0.5f;
         [SerializeField] private AudioSource _sfxSourceTemplate;
         private List<AudioSource> _sfxSources = new();
 
@@ -58,19 +57,19 @@ namespace Jam
             source.Play();
         }
 
-        public static float ToLinear(float db)
-        {
-            return Mathf.Clamp01(Mathf.Pow(10.0f, db / 20.0f));
-        }
+        //public static float ToLinear(float db)
+        //{
+        //    return Mathf.Clamp01(Mathf.Pow(10.0f, db / 20.0f));
+        //}
 
-        public static float toDB(float linear)
-        {
-            return linear <= 0 ? -80f : Mathf.Log10(linear) * 20.0f;
-        }
+        //public static float toDB(float linear)
+        //{
+        //    return linear <= 0 ? -80f : Mathf.Log10(linear) * 20.0f;
+        //}
 
         public void SetVolume(string parameter, float value)
         {
-            _mixer.SetFloat(parameter, toDB(value));
+            _mixer.SetFloat(parameter, value.toDB());
         }
 
         public bool GetVolume(string parameter, out float value)
