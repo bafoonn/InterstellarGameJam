@@ -200,7 +200,7 @@
                 {
                     "name": "",
                     "id": "15e5da74-1310-4532-bb9f-8f7241175247",
-                    "path": "<Keyboard>/rightShift",
+                    "path": "<Keyboard>/rightCtrl",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -211,7 +211,7 @@
                 {
                     "name": "",
                     "id": "f4b84290-23e2-4a1d-b8db-c4dda3a6dfa7",
-                    "path": "<Keyboard>/rightCtrl",
+                    "path": "<Keyboard>/rightShift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -259,7 +259,7 @@
                 {
                     "name": "",
                     "id": "84952437-9e4a-4183-bdfd-fc6295ea4f9d",
-                    "path": "<Keyboard>/r",
+                    "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
