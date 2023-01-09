@@ -317,7 +317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tuomas Antikainen
+  m_text: "Little Engine\n by Theo Prior Music (modified)"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}
   m_sharedMaterial: {fileID: 4890804152577070858, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}
@@ -1279,7 +1279,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -546}
+  m_AnchoredPosition: {x: 0, y: -940}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1022051704
@@ -1439,7 +1439,14 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Johanna Saukkonen
 
-    Tuomas Antikainen'
+    Tuomas Antikainen
+
+
+    Connection II Font by KineticPlasma
+    Fonts
+
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}
   m_sharedMaterial: {fileID: 4890804152577070858, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}
@@ -1551,7 +1558,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -55}
+  m_AnchoredPosition: {x: 0, y: -200}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1239971474
@@ -1574,7 +1581,41 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Johanna Saukkonen
+  m_text: 'Johanna Saukkonen
+
+
+    Pixabay
+
+
+    8 bit blast
+
+    by aceton41k (modified)
+
+
+    Game
+    UI sounds
+
+    by Bertsz
+
+
+    SFX Jump 07
+
+    by jalastram (modified)
+
+
+    Freesound
+
+
+    Get
+    Item 2 8 Bit.wav
+
+    by Mrthenoronha (modified)
+
+
+    Kill Enemy 5 8 Bit.wav
+
+    by
+    Mrthenoronha (modified)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}
   m_sharedMaterial: {fileID: 4890804152577070858, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}
@@ -1879,7 +1920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -683}
+  m_AnchoredPosition: {x: 0, y: -1091}
   m_SizeDelta: {x: 0, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642104503
