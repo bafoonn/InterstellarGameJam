@@ -10,14 +10,20 @@ namespace Jam
     {
         [SerializeField] private AudioMixer _mixer;
         [SerializeField] private AudioSource _sfxSourceTemplate;
+        private MusicPlayer _musicPlayer;
         private List<AudioSource> _sfxSources = new();
 
         [SerializeField] private List<SoundEffect> _soundEffects = new();
 
         protected override void Init()
         {
+            _musicPlayer = GetComponentInChildren<MusicPlayer>();
+
             Debug.Assert(_mixer != null, $"{name} has no AudioMixer set in the inspector.");
             Debug.Assert(_sfxSourceTemplate != null, $"{name} has no SfxSourceTemplate set in the inspector.");
+            Debug.Assert(_musicPlayer != null, $"{name} cannot find MusicPlayer in children.");
+
+            _musicPlayer.Init();
         }
 
         public void PlaySound(string effectName, bool addPitch = true)

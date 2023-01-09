@@ -16,6 +16,10 @@ namespace Jam
         private void Awake()
         {
             _source = GetComponent<AudioSource>();
+        }
+
+        public void Init()
+        {
             _source.volume = 0;
             if (_defaultClip) StartCoroutine(FadeIn(_defaultClip));
         }
