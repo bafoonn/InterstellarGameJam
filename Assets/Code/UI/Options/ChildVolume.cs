@@ -7,21 +7,8 @@ namespace Jam
 {
     public class ChildVolume : VolumeSlider
     {
-        //[SerializeField]
-        //private float _maxVolume = 100;
         [SerializeField]
         private float _currentVolume = 1;
-        //public float MaxVolume
-        //{
-        //    get => _maxVolume;
-        //    set
-        //    {
-        //        float clampedValue = Mathf.Clamp(value, 0.1f, 1);
-        //        _maxVolume = clampedValue * 100;
-        //        //SetSlider(Mathf.Clamp(value, 0.1f, 1f));
-        //        SetSlider(clampedValue * 100);
-        //    }
-        //}
 
         protected override void Awake()
         {
@@ -44,6 +31,16 @@ namespace Jam
         {
             float clampedValue = Mathf.Clamp(masterVolume, 0.001f, 1);
             SetSlider(clampedValue * 1000);
+        }
+
+        public void Setup(float masterVolume)
+        {
+            if(AudioManager.Instance.GetVolume(ParameterName, out float value))
+            {
+                _currentVolume = value.ToLinear() / masterVolume;
+                _currentVolume = Mathf.Clamp(_currentVolume, 0, 1);
+            }
+            UpdateSlider(masterVolume);
         }
     }
 }

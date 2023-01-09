@@ -15,7 +15,6 @@ namespace Jam
         protected virtual void Awake()
         {
             Slider = GetComponent<Slider>();
-            //OnValueChanged(Slider.value);
         }
 
         private void OnEnable()

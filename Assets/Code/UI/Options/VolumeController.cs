@@ -23,7 +23,7 @@ namespace Jam
         private void Start()
         {
             _masterVolume.Init();
-            _sliders.ForEach(slider => slider.UpdateSlider(_masterVolume.Slider.value));
+            _sliders.ForEach(slider => slider.Setup(_masterVolume.Slider.value));
             _masterVolume.Slider.onValueChanged.AddListener(OnMasterVolumeChanged);
         }
 
