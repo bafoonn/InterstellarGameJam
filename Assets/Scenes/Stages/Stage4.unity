@@ -594,7 +594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#FFB3B5>W</color> or <color=#A6EBFF>Up ARROW</color> to hold umbrella
+  m_text: <color=#FFB3B5>S,E</color> or <color=#A6EBFF>K,O</color> to hold umbrella
     up
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}

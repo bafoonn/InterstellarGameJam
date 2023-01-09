@@ -316,8 +316,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#FFB3B5>Q</color> or <color=#A6EBFF>R-SHIFT</color> to throw and
-    recall umbrella
+  m_text: <color=#FFB3B5>Q</color> or <color=#A6EBFF>U</color> to throw and recall
+    umbrella
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}
   m_sharedMaterial: {fileID: 4890804152577070858, guid: a31da30159f00fe4aa3f8e31b43dabe1, type: 2}
@@ -2776,7 +2776,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 3
-      m_TileSpriteIndex: 4
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2807,10 +2807,10 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 1
-    m_Data: {fileID: 1988554955, guid: c27f85f86e9b7d14988c03bb58f1121c, type: 3}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1988554955, guid: c27f85f86e9b7d14988c03bb58f1121c, type: 3}
   - m_RefCount: 3
     m_Data: {fileID: 118419443, guid: c27f85f86e9b7d14988c03bb58f1121c, type: 3}
   m_TileMatrixArray:
