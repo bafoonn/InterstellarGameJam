@@ -11,6 +11,8 @@ namespace Jam
     {
         [SerializeField] private Player _bluePlayerPrefab;
         [SerializeField] private Player _redPlayerPrefab;
+        private Player _bluePlayer;
+        private Player _redPlayer;
         private PlayerSpawnPoint[] _spawnPoints;
         private bool _isBlueOnPortal = false;
         private bool _isRedOnPortal = false;
@@ -26,13 +28,13 @@ namespace Jam
             Debug.Assert(_spawnPoints.Any(spawn => spawn.Color == PlayerColor.Red), $"{name} cannot find RedSpawnPoint.");
 
             PlayerSpawnPoint blueSpawn = _spawnPoints.Single(spawn => spawn.Color == PlayerColor.Blue);
-
             PlayerSpawnPoint redSpawn = _spawnPoints.Single(spawn => spawn.Color == PlayerColor.Red);
-            Player blue = Instantiate(_bluePlayerPrefab, blueSpawn.transform.position, blueSpawn.transform.rotation);
-            Player red = Instantiate(_redPlayerPrefab, redSpawn.transform.position, redSpawn.transform.rotation);
+
+            _bluePlayer = Instantiate(_bluePlayerPrefab, blueSpawn.transform.position, blueSpawn.transform.rotation);
+            _redPlayer = Instantiate(_redPlayerPrefab, redSpawn.transform.position, redSpawn.transform.rotation);
             AudioManager.Instance.PlaySound("ExitPortal");
-            blue.Setup(this);
-            red.Setup(this);
+            _bluePlayer.Setup(this);
+            _redPlayer.Setup(this);
         }
 
         private void OnEnable()
@@ -47,6 +49,20 @@ namespace Jam
             GameStateManager.StateChanged -= OnGameStateChanged;
             Portal.Entered -= OnPortalEntered;
             Portal.Exited -= OnPortalExited;
+        }
+
+        private void Update()
+        {
+            if(_redPlayer.transform.position.y < -20)
+            {
+                Vector2 spawnPoint = _spawnPoints.Single(spawn => spawn.Color == PlayerColor.Red).transform.position;
+                _redPlayer.transform.position = spawnPoint;
+            }
+            else if(_bluePlayer.transform.position.y < -20)
+            {
+                Vector2 spawnPoint = _spawnPoints.Single(spawn => spawn.Color == PlayerColor.Blue).transform.position;
+                _bluePlayer.transform.position = spawnPoint;
+            }
         }
 
         private void OnPortalEntered(PlayerColor color)
