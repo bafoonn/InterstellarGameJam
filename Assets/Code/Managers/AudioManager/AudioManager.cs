@@ -22,7 +22,10 @@ namespace Jam
             Debug.Assert(_mixer != null, $"{name} has no AudioMixer set in the inspector.");
             Debug.Assert(_sfxSourceTemplate != null, $"{name} has no SfxSourceTemplate set in the inspector.");
             Debug.Assert(_musicPlayer != null, $"{name} cannot find MusicPlayer in children.");
+        }
 
+        private void Start()
+        {
             _musicPlayer.Init();
         }
 
