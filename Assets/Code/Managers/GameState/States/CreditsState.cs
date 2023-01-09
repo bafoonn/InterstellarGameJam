@@ -13,6 +13,7 @@ namespace Jam
         public CreditsState() : base()
         {
             AddTargetState(GameStateType.MainMenu);
+            AddTargetState(GameStateType.Options);
         }
     }
 }

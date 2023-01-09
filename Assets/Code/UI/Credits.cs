@@ -6,16 +6,14 @@ namespace Jam
 {
     public class Credits : MonoBehaviour
     {
-        // Start is called before the first frame update
-        void Start()
+        public void MainMenu()
         {
-        
+            GameStateManager.Instance.Go(GameStateType.MainMenu);
         }
 
-        // Update is called once per frame
-        void Update()
+        public void Back()
         {
-        
+            GameStateManager.Instance.GoBack();
         }
     }
 }

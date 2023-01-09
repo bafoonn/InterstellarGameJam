@@ -15,7 +15,9 @@ namespace Jam
         public OptionsState() : base()
         {
             AddTargetState(GameStateType.MainMenu);
+            AddTargetState(GameStateType.Credits);
             AddTargetState(GameStateType.Stage);
+            AddTargetState(GameStateType.StageSelect);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Jam
     public class MusicPlayer : MonoBehaviour
     {
         private AudioSource _source;
+        [SerializeField] private AudioClip _defaultClip;
         [SerializeField] private float _fadeTime = 2f;
         [SerializeField] private List<StateClip> _stateClips = new();
 
@@ -16,7 +17,7 @@ namespace Jam
         {
             _source = GetComponent<AudioSource>();
             _source.volume = 0;
-            StartCoroutine(FadeIn());
+            if (_defaultClip) StartCoroutine(FadeIn(_defaultClip));
         }
 
         private void OnEnable()
@@ -35,18 +36,23 @@ namespace Jam
 
             AudioClip clip = _stateClips.SingleOrDefault(stateClip => stateClip.State == state.Type).Clip;
 
-            if (clip != null && _source.clip != clip)
+            if(clip && !_source.clip)
             {
-                ChangeTo(clip);
+                StartCoroutine(FadeIn(clip));
             }
-            else if (clip == null)
+            else if (clip && _source.clip != clip)
+            {
+                StartCoroutine(ChangeTo(clip));
+            }
+            else if (!clip && _source.clip)
             {
                 Stop();
             }
         }
 
-        private IEnumerator FadeIn()
+        private IEnumerator FadeIn(AudioClip clip)
         {
+            _source.clip = clip;
             _source.Play();
             float timer = 0;
             while(timer != _fadeTime)
@@ -62,30 +68,29 @@ namespace Jam
             float timer = _fadeTime;
             while(timer != 0)
             {
-                timer = Mathf.MoveTowards(timer, _fadeTime, Time.unscaledDeltaTime);
+                timer = Mathf.MoveTowards(timer, 0, Time.unscaledDeltaTime);
                 _source.volume = timer / _fadeTime;
                 yield return null;
             }
             _source.Stop();
+            _source.clip = null;
         }
 
-        //public void Play(AudioClip clip)
+        //public void ChangeTo(AudioClip clip)
         //{
-        //    _source.clip = clip;
-        //    StartCoroutine(FadeIn());
+        //    StartCoroutine(FadeOut());
+        //    StartCoroutine(FadeIn(clip));
         //}
 
-        public void ChangeTo(AudioClip clip)
+        private IEnumerator ChangeTo(AudioClip clip)
         {
-            StartCoroutine(FadeOut());
-            _source.clip = clip;
-            StartCoroutine(FadeIn());
+            yield return StartCoroutine(FadeOut());
+            yield return StartCoroutine(FadeIn(clip));
         }
 
         public void Stop()
         {
             StartCoroutine(FadeOut());
-            _source.clip = null;
         }
     }
 }
